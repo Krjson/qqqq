@@ -304,6 +304,43 @@ app.get('/adm', async (req, res) => {
   }
 });
 
+
+app.get('/media', (req, res) => {
+  res.render('media');
+});
+  
+
+app.get('/k1', (req, res) => {
+  res.render('k1');
+});
+
+app.get('/k2', (req, res) => {
+  res.render('k2');
+});
+
+app.get('/k3', (req, res) => {
+  res.render('k3');
+});
+
+app.get('/k4', (req, res) => {
+  res.render('k4');
+});
+
+app.get('/k5', (req, res) => {
+  res.render('k5');
+});
+
+app.get('/k6', (req, res) => {
+  res.render('k6');
+});
+
+app.get('/k7', (req, res) => {
+  res.render('k7');
+});
+
+app.get('/k8', (req, res) => {
+  res.render('k8');
+});
   
   
 app.get('/logout', (req, res) => {

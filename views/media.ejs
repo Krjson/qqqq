@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #444654;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    .header {
+      background-color: #007bff;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .header__navigation {
+      display: flex;
+      align-items: center;
+    }
+    .header__navigation a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: color 0.3s ease;
+    }
+    .header__navigation a:hover {
+      color: #ffcc00;
+    }
+ 
+    .main-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 130px);
+    }
+    .video {
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+    .footer {
+      background-color: #007bff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      .header {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .header__navigation {
+        margin-top: 10px;
+      }
+      .header__user-links {
+        display: none;
+      }
+    }
+    .header__navigation .activeee {
+        color: #ffcc00;
+
+    }
+    .blue {
+        background-color: #007bff;
+    }
+  </style>
+   <script>
+    function logout() {
+      fetch('/logout', { method: 'GET' })
+        .then(response => {
+          if (response.redirected) {
+            window.location.href = response.url;
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка при выходе:', error);
+        });
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+    <div class="header__logo">
+      Физкультура
+    </div>
+    <div class="header__navigation">
+      <a href="/security">Техника безопасности</a>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="mediaDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 15px;">
+        Медиа
+      </button>
+      <style>
+        .blue {
+          background-color: #007bff;
+        }
+      </style>
+      <ul class="dropdown-menu blue" aria-labelledby="mediaDropdown">
+        <li><a class="dropdown-item" href="/media">Тест по физкультуре</a></li>
+        <li><a class="dropdown-item" href="/set">Правила ЗОЖ</a></li>
+        <li><a class="dropdown-item" href="/k1">Инфографика</a></li>
+        <li><a class="dropdown-item" href="/k2">Правила здорового образа жизни</a></li>
+        <li><a class="dropdown-item" href="/k3">Мы за зож</a></li>
+        <li><a class="dropdown-item" href="/k4">Пропаганда ЗОЖ</a></li>
+        <li><a class="dropdown-item" href="/k5">Воспитание спортсменов</a></li>
+
+        <li><a class="dropdown-item" href="/k6">Формирование ЗОЖ</a></li>
+
+        <li><a class="dropdown-item" href="/k7">Необычные виды СПОРТА</a></li>
+        <li><a class="dropdown-item" href="/k8">О проекте</a></li>
+
+
+
+      </ul>
+      <div class="header__user">
+  
+        <a href="#" onclick="logout()">Выйти</a>
+    </div>
+    </div>
+  </div>
+
+  <h2>Тесты по физкультуре</h2>
+
+  <!-- Тесты -->
+  <div id="tests" style="width: 800px; margin: 0 auto;">
+    <!-- Тест 1 -->
+    <div id="test1">
+      <h4>Тест 1</h4>
+      <p>Какой из следующих видов физической активности развивает гибкость?</p>
+      <ul>
+        <li><input type="radio" name="q1" value="a"> a) Бег</li>
+        <li><input type="radio" name="q1" value="b"> b) Плавание</li>
+        <li><input type="radio" name="q1" value="c"> c) Йога</li>
+        <li><input type="radio" name="q1" value="d"> d) Подтягивания</li>
+      </ul>
+    </div>
+
+    <!-- Тест 2 -->
+    <div id="test2">
+      <h4>Тест 2</h4>
+      <p>Что из нижеперечисленного является кардиоваскулярной тренировкой?</p>
+      <ul>
+        <li><input type="radio" name="q2" value="a"> a) Прыжки со скакалкой</li>
+        <li><input type="radio" name="q2" value="b"> b) Жим штанги</li>
+        <li><input type="radio" name="q2" value="c"> c) Растяжка</li>
+        <li><input type="radio" name="q2" value="d"> d) Подтягивания</li>
+      </ul>
+    </div>
+
+    <!-- Тест 3 -->
+    <div id="test3">
+      <h4>Тест 3</h4>
+      <p>Какой мышцы задействованы при выполнении приседаний (колено-бедренный сустав)?</p>
+      <ul>
+        <li><input type="radio" name="q3" value="a"> a) Бицепс</li>
+        <li><input type="radio" name="q3" value="b"> b) Квадрицепсы</li>
+        <li><input type="radio" name="q3" value="c"> c) Дельтовидная мышца</li>
+        <li><input type="radio" name="q3" value="d"> d) Грудные мышцы</li>
+      </ul>
+    </div>
+
+    <!-- Тест 4 -->
+    <div id="test4">
+      <h4>Тест 4</h4>
+      <p>Что такое аэробная тренировка?</p>
+      <ul>
+        <li><input type="radio" name="q4" value="a"> a) Тренировка с использованием аэробуса</li>
+        <li><input type="radio" name="q4" value="b"> b) Тренировка на свежем воздухе</li>
+        <li><input type="radio" name="q4" value="c"> c) Тренировка с использованием кислорода</li>
+        <li><input type="radio" name="q4" value="d"> d) Тренировка, при которой усилия выполняются на таком уровне, чтобы поступление кислорода в организм удовлетворяло потребности работающих мышц</li>
+      </ul>
+    </div>
+
+    <!-- Тест 5 -->
+    <div id="test5">
+      <h4>Тест 5</h4>
+      <p>Какие из следующих упражнений развивают силу?</p>
+      <ul>
+        <li><input type="checkbox" name="q5a" value="a"> a) Пресс-упражнения</li>
+        <li><input type="checkbox" name="q5b" value="b"> b) Бег на длинные дистанции</li>
+        <li><input type="checkbox" name="q5c" value="c"> c) Прыжки на скакалке</li>
+        <li><input type="checkbox" name="q5d" value="d"> d) Подтягивания</li>
+      </ul>
+    </div>
+
+    <!-- Тест 6 -->
+    <div id="test6">
+      <h4>Тест 6</h4>
+      <p>Какая часть тела развивается при выполнении упражнений на турнике?</p>
+      <ul>
+        <li><input type="radio" name="q6" value="a"> a) Ноги</li>
+        <li><input type="radio" name="q6" value="b"> b) Руки и спина</li>
+        <li><input type="radio" name="q6" value="c"> c) Грудные мышцы</li>
+        <li><input type="radio" name="q6" value="d"> d) Живот</li>
+      </ul>
+    </div>
+
+    <!-- Тест 7 -->
+    <div id="test7">
+      <h4>Тест 7</h4>
+      <p>Какие из следующих упражнений развивают выносливость?</p>
+      <ul>
+        <li><input type="checkbox" name="q7a" value="a"> a) Жим штанги</li>
+        <li><input type="checkbox" name="q7b" value="b"> b) Бег на короткие дистанции</li>
+        <li><input type="checkbox" name="q7c" value="c"> c) Подтягивания</li>
+        <li><input type="checkbox" name="q7d" value="d"> d) Прыжки со скакалкой</li>
+      </ul>
+    </div>
+
+    <!-- Тест 8 -->
+    <div id="test8">
+      <h4>Тест 8</h4>
+      <p>Какой из нижеперечисленных видов физической активности развивает координацию?</p>
+      <ul>
+        <li><input type="radio" name="q8" value="a"> a) Плавание</li>
+        <li><input type="radio" name="q8" value="b"> b) Гиревой спорт</li>
+        <li><input type="radio" name="q8" value="c"> c) Тяжелая атлетика</li>
+        <li><input type="radio" name="q8" value="d"> d) Бег на длинные дистанции</li>
+      </ul>
+    </div>
+
+    <!-- Тест 9 -->
+    <div id="test9">
+      <h4>Тест 9</h4>
+      <p>Что такое растяжка?</p>
+      <ul>
+        <li><input type="radio" name="q9" value="a"> a) Вид физической активности, при котором упражнения выполняются на максимальной скорости</li>
+        <li><input type="radio" name="q9" value="b"> b) Процесс увеличения объема мышц</li>
+        <li><input type="radio" name="q9" value="c"> c) Тренировка на гибкость, направленная на улучшение подвижности суставов и укрепление мышц</li>
+        <li><input type="radio" name="q9" value="d"> d) Тренировка с использованием легких гирь</li>
+      </ul>
+    </div>
+
+    <!-- Тест 10 -->
+    <div id="test10">
+      <h4>Тест 10</h4>
+      <p>Какое из упражнений развивает силу в грудных мышцах?</p>
+      <ul>
+        <li><input type="radio" name="q10" value="a"> a) Приседания</li>
+        <li><input type="radio" name="q10" value="b"> b) Скручивания</li>
+        <li><input type="radio" name="q10" value="c"> c) Жим штанги лежа</li>
+        <li><input type="radio" name="q10" value="d"> d) Бег на месте</li>
+      </ul>
+    </div>
+
+    <!-- Тест 11 -->
+    <div id="test11">
+      <h4>Тест 11</h4>
+      <p>Что такое функциональная тренировка?</p>
+      <ul>
+        <li><input type="radio" name="q11" value="a"> a) Тренировка, направленная на укрепление мышц живота и спины</li>
+        <li><input type="radio" name="q11" value="b"> b) Тренировка, которая имитирует движения, необходимые для выполнения повседневных задач</li>
+        <li><input type="radio" name="q11" value="c"> c) Тренировка, при которой используется специальное оборудование, такое как гантели и гири</li>
+        <li><input type="radio" name="q11" value="d"> d) Тренировка, включающая только кардиоваскулярные упражнения</li>
+      </ul>
+    </div>
+
+    <!-- Кнопка для проверки результатов -->
+    <button id="submit">Проверить результаты</button>
+  </div>
+
+  <!-- Результаты теста -->
+  <div id="result"></div>
+
+  <script>
+    $(document).ready(function() {
+      // Обработчик нажатия кнопки "Проверить результаты"
+      $('#submit').click(function() {
+        // Обнуление результатов
+        var correctAnswers = 0;
+        var totalQuestions = 11;
+
+        // Проверка ответов на тесты
+        if ($('input[name=q1]:checked').val() === 'c') correctAnswers++;
+        if ($('input[name=q2]:checked').val() === 'a') correctAnswers++;
+        if ($('input[name=q3]:checked').val() === 'b') correctAnswers++;
+        if ($('input[name=q4]:checked').val() === 'd') correctAnswers++;
+        if ($('input[name=q6]:checked').val() === 'b') correctAnswers++;
+        if ($('input[name=q8]:checked').val() === 'b') correctAnswers++;
+        if ($('input[name=q9]:checked').val() === 'c') correctAnswers++;
+        if ($('input[name=q10]:checked').val() === 'c') correctAnswers++;
+        if ($('input[name=q5a]:checked').val() === 'a' && $('input[name=q5c]:checked').val() === 'c' && !$('input[name=q5b]:checked').val() && !$('input[name=q5d]:checked').val()) correctAnswers++;
+        if ($('input[name=q7b]:checked').val() === 'b' && $('input[name=q7c]:checked').val() === 'c' && $('input[name=q7d]:checked').val() === 'd' && !$('input[name=q7a]:checked').val()) correctAnswers++;
+        if ($('input[name=q11]:checked').val() === 'b') correctAnswers++;
+
+        // Вывод результатов
+        var resultString = 'Вы ответили правильно на ' + correctAnswers + ' из ' + totalQuestions + ' вопросов.';
+        $('#result').text(resultString);
+      });
+    });
+  </script>
+
+  <div class="footer">
+    Заказчик Володин Евгений Александрович, Исполнитель Лукавский Виктор Анатольевич, руководитель Баймухан Айбек Болатбекович.
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

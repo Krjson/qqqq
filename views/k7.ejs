@@ -16,10 +16,6 @@
       min-height: 100vh;
       flex-direction: column;
     }
-
-    .table {
-        color: #fff;
-    }
     .header {
       background-color: #007bff;
       padding: 10px;
@@ -127,42 +123,16 @@
 
       </ul>
       <div class="header__user">
-        <% if (user.role === 'admin') { %>
-            <a href="/adm">Админ панель</a>
-          <% } %>
+  
         <a href="#" onclick="logout()">Выйти</a>
     </div>
     </div>
   </div>
 
-  <div class="container">
-    <h1>Страница администратора</h1>
-
-    <h2>Все результаты тестирования:</h2>
-    <% if (testResults.length > 0) { %>
-      <table class="table">
-        <tr>
-          <th>Имя</th>
-          <th>Фамилия</th>
-          <th>Класс</th>
-          <th>Дата прохождения</th>
-          <th>Результат</th>
-        </tr>
-        <% testResults.forEach(result => { %>
-          <tr>
-            <td><%= result.userId.firstName %></td>
-            <td><%= result.userId.lastName %></td>
-            <td><%= result.userId.className %></td>
-            <td><%= result.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' }) %></td>
-            <td><%= result.result.toFixed(2) %>%</td>
-          </tr>
-        <% }) %>
-      </table>
-    <% } else { %>
-      <p>Нет доступных результатов тестирования</p>
-    <% } %>
+  <div style="width: 800px; margin: 0 auto;">
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRKEys-aESd9cX1QQTLuA0VuPHMLa4i50syEwTpzxa3pWLEvXvt_JiJTRHvTeTsKaZbGedVZnUXPmtw/embed?start=false&loop=false&delayms=3000&slide=id.p1" width="800" height="600" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
   </div>
-
+  
   <div class="footer">
     Заказчик Володин Евгений Александрович, Исполнитель Лукавский Виктор Анатольевич, руководитель Баймухан Айбек Болатбекович.
   </div>

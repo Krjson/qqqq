@@ -97,7 +97,31 @@
     </div>
     <div class="header__navigation">
       <a href="/security">Техника безопасности</a>
-      <a href="/set">Настройки</a>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="mediaDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 15px;">
+        Медиа
+      </button>
+      <style>
+        .blue {
+          background-color: #007bff;
+        }
+      </style>
+      <ul class="dropdown-menu blue" aria-labelledby="mediaDropdown">
+        <li><a class="dropdown-item" href="/media">Тест по физкультуре</a></li>
+        <li><a class="dropdown-item" href="/set">Правила ЗОЖ</a></li>
+        <li><a class="dropdown-item" href="/k1">Инфографика</a></li>
+        <li><a class="dropdown-item" href="/k2">Правила здорового образа жизни</a></li>
+        <li><a class="dropdown-item" href="/k3">Мы за зож</a></li>
+        <li><a class="dropdown-item" href="/k4">Пропаганда ЗОЖ</a></li>
+        <li><a class="dropdown-item" href="/k5">Воспитание спортсменов</a></li>
+
+        <li><a class="dropdown-item" href="/k6">Формирование ЗОЖ</a></li>
+
+        <li><a class="dropdown-item" href="/k7">Необычные виды СПОРТА</a></li>
+        <li><a class="dropdown-item" href="/k8">О проекте</a></li>
+
+
+
+      </ul>
       <div class="header__user">
         <% if (user.role === 'admin') { %>
             <a href="/adm">Админ панель</a>
